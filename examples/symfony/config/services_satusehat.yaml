@@ -1,0 +1,26 @@
+# config/services_satusehat.yaml
+#
+# Service definitions untuk SatusehatClient di Symfony
+# Import di config/services.yaml:
+#   imports:
+#       - { resource: 'services_satusehat.yaml' }
+
+services:
+
+    # PSR-16 Cache adapter menggunakan Symfony Cache
+    satusehat.cache:
+        class: Symfony\Component\Cache\Psr16Cache
+        arguments:
+            - '@cache.app'
+
+    # SatusehatClient — dibuat via factory
+    Wawaiguntang\Satusehat\SatusehatClient:
+        factory: ['Wawaiguntang\Satusehat\SatusehatClientFactory', 'create']
+        arguments:
+            $clientId:     '%satusehat.client_id%'
+            $clientSecret: '%satusehat.client_secret%'
+            $cache:        '@satusehat.cache'
+            $baseUrl:      '%satusehat.base_url%'
+            $authUrl:      '%satusehat.auth_url%'
+        # Autowire ke controller otomatis
+        public: true

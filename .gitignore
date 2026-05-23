@@ -1,0 +1,36 @@
+# Dependencies
+/vendor/
+
+# Composer lock (opsional — hapus baris ini jika ingin commit lock file)
+# composer.lock
+
+# Environment & credentials
+.env
+.env.local
+.env.*.local
+
+# Cache & storage
+/storage/
+*.cache
+
+# PHPUnit
+/.phpunit.result.cache
+/.phpunit.cache/
+/coverage/
+/coverage.xml
+/clover.xml
+
+# IDE & OS
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+/build/
+/dist/
+
+# Log files
+*.log

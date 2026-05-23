@@ -1,0 +1,15 @@
+# config/packages/satusehat.yaml
+#
+# Konfigurasi SATUSEHAT untuk Symfony
+# Tambahkan di .env:
+#   SATUSEHAT_CLIENT_ID=your-client-id
+#   SATUSEHAT_CLIENT_SECRET=your-client-secret
+#   SATUSEHAT_ENV=staging
+
+parameters:
+    satusehat.client_id:     '%env(SATUSEHAT_CLIENT_ID)%'
+    satusehat.client_secret: '%env(SATUSEHAT_CLIENT_SECRET)%'
+    satusehat.env:           '%env(default:production:SATUSEHAT_ENV)%'
+
+    satusehat.base_url: '%env(default::SATUSEHAT_BASE_URL)%'
+    satusehat.auth_url: '%env(default::SATUSEHAT_AUTH_URL)%'
